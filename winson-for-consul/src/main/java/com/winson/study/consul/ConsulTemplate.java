@@ -17,6 +17,7 @@ public class ConsulTemplate {
     public static Consul getConsul(String host, int port) {
         return Consul.builder()
                 .withHostAndPort(HostAndPort.fromHost("192.168.204.130").withDefaultPort(8500))
+                .withReadTimeoutMillis(20000)
                 .build(); // connect on localhost
     }
 

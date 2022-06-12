@@ -4,6 +4,7 @@ import com.orbitz.consul.Consul;
 import com.orbitz.consul.HealthClient;
 import com.orbitz.consul.model.ConsulResponse;
 import com.orbitz.consul.model.health.ServiceHealth;
+import com.orbitz.consul.option.QueryOptions;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public class ConsulHealthDemoV1 {
         HealthClient healthClient = consul.healthClient();
 
         String serviceId = "winson-home-app-001";
+        String service = "winson-home-app-dev";
+
+        System.out.println(healthClient.getHealthyServiceInstances(service, QueryOptions.BLANK));
 
 
         // Discover only "passing" nodes

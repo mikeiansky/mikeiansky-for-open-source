@@ -27,15 +27,19 @@ public class ConsulServiceRegistrationDemoV1 {
         HashMap<String,String> meta = new HashMap<>();
         meta.put("age", "32");
         meta.put("address", "shenzhen-001");
-        String serviceId = "winson-home-idel-client-001";
+        String serviceId = "winson-home-idel-client-003";
         Registration service = ImmutableRegistration.builder()
                 .id(serviceId)
                 .name("winson-home-idel-client")
+                .address("192.168.204.1")
                 .port(9004)
                 .tags(Arrays.asList("winson-home-idel"))
                 .meta(meta)
                 .check(Registration.RegCheck.ttl(10L))
                 .build();
+
+        agentClient.register(service);
+
 
         // keep alive
         new Thread(new Runnable() {
@@ -56,7 +60,6 @@ public class ConsulServiceRegistrationDemoV1 {
             }
         }).start();
 
-        agentClient.register(service);
 
         agentClient.pass(serviceId);
 

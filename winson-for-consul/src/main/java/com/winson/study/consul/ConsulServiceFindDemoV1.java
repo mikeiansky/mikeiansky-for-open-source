@@ -7,6 +7,7 @@ import com.orbitz.consul.NotRegisteredException;
 import com.orbitz.consul.model.ConsulResponse;
 import com.orbitz.consul.model.agent.FullService;
 import com.orbitz.consul.model.health.Service;
+import com.orbitz.consul.option.ImmutableQueryOptions;
 import com.orbitz.consul.option.QueryOptions;
 
 import java.security.Key;
@@ -28,7 +29,13 @@ public class ConsulServiceFindDemoV1 {
 //        ConsulResponse<FullService> consulResponse = agentClient.getService(serviceId, QueryOptions.BLANK);
 //        System.out.println(consulResponse);
 
-        Map<String, Service> serviceMap = agentClient.getServices();
+        QueryOptions queryOptions = ImmutableQueryOptions.builder()
+                .filter("Service == \"winson-home-app-dev\"")
+                .build();
+
+
+        Map<String, Service> serviceMap = agentClient.getServices(queryOptions);
+//        Map<String, Service> serviceMap = agentClient.getServices();
         for (String key : serviceMap.keySet()) {
 //            System.out.println(key);
             Service service = serviceMap.get(key);

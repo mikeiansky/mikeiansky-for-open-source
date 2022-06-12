@@ -23,7 +23,7 @@ public class ConsulSubscribeKVChangeDemoV1 {
         KeyValueClient keyValueClient = consul.keyValueClient();
         keyValueClient.getNetworkTimeoutConfig();
 
-        KVCache kvCache = KVCache.newCache(keyValueClient, "company", 5);
+        KVCache kvCache = KVCache.newCache(keyValueClient, "company", 9);
         kvCache.addListener(new ConsulCache.Listener<String, Value>() {
             @Override
             public void notify(Map<String, Value> newValues) {
