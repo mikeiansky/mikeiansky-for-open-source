@@ -11,12 +11,12 @@ import com.orbitz.consul.Consul;
 public class ConsulTemplate {
 
     public static Consul getConsul() {
-        return getConsul("192.168.204.130", 8500);
+        return getConsul("172.16.2.211", 8500);
     }
 
     public static Consul getConsul(String host, int port) {
         return Consul.builder()
-                .withHostAndPort(HostAndPort.fromHost("192.168.204.130").withDefaultPort(8500))
+                .withHostAndPort(HostAndPort.fromHost(host).withDefaultPort(port))
                 .withReadTimeoutMillis(20000)
                 .build(); // connect on localhost
     }

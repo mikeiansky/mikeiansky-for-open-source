@@ -2,7 +2,7 @@ package com.winson.study.consul;
 
 import com.orbitz.consul.Consul;
 import com.orbitz.consul.StatusClient;
-import jdk.jshell.Snippet;
+//import jdk.jshell.Snippet;
 
 /**
  * @author winson
