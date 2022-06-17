@@ -32,9 +32,9 @@ public class BackendAService implements Service {
     public static final String BACKEND_A = "backendA";
 
     @Override
-    @CircuitBreaker(name = BACKEND_A)
-//    @Bulkhead(name = BACKEND_A)
-    @Retry(name = BACKEND_A)
+//    @CircuitBreaker(name = BACKEND_A)
+    @Bulkhead(name = BACKEND_A)
+//    @Retry(name = BACKEND_A)
     public String failure() {
         System.out.println("do failure on BackendAService");
         throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "This is a remote exception");

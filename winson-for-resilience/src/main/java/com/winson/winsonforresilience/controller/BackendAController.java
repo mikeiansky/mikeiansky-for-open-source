@@ -23,7 +23,8 @@ public class BackendAController {
 //    @CircuitBreaker(name = BackendAService.BACKEND_A)
     @GetMapping("failure")
     public String failure(){
-        System.out.println("do failure on BackendAController");
+        System.out.println("do failure on BackendAController , BackendAController");
+        // BackendAController
         return businessAService.failure();
     }
 

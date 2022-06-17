@@ -58,29 +58,29 @@ public class RConfig {
         };
     }
 
-    @Bean
-    public RegistryEventConsumer<Retry> myRetryRegistryEventConsumer() {
-
-        return new RegistryEventConsumer<Retry>() {
-            @Override
-            public void onEntryAddedEvent(EntryAddedEvent<Retry> entryAddedEvent) {
-                entryAddedEvent.getAddedEntry().getEventPublisher().onEvent(event -> {
-                    System.out.println("retry RegistryEventConsumer onEntryAddedEvent ------------> onEvent");
-
-                    LOG.info(event.toString());
-                });
-            }
-
-            @Override
-            public void onEntryRemovedEvent(EntryRemovedEvent<Retry> entryRemoveEvent) {
-
-            }
-
-            @Override
-            public void onEntryReplacedEvent(EntryReplacedEvent<Retry> entryReplacedEvent) {
-
-            }
-        };
-    }
+//    @Bean
+//    public RegistryEventConsumer<Retry> myRetryRegistryEventConsumer() {
+//
+//        return new RegistryEventConsumer<Retry>() {
+//            @Override
+//            public void onEntryAddedEvent(EntryAddedEvent<Retry> entryAddedEvent) {
+//                entryAddedEvent.getAddedEntry().getEventPublisher().onEvent(event -> {
+//                    System.out.println("retry RegistryEventConsumer onEntryAddedEvent ------------> onEvent");
+//
+//                    LOG.info(event.toString());
+//                });
+//            }
+//
+//            @Override
+//            public void onEntryRemovedEvent(EntryRemovedEvent<Retry> entryRemoveEvent) {
+//
+//            }
+//
+//            @Override
+//            public void onEntryReplacedEvent(EntryReplacedEvent<Retry> entryReplacedEvent) {
+//
+//            }
+//        };
+//    }
 
 }
