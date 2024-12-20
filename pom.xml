@@ -11,6 +11,7 @@
     <modules>
         <module>mikeiansky-for-consul</module>
         <module>mikeiansky-for-rabbitmq</module>
+        <module>miekiansky-for-activemq</module>
     </modules>
 
     <properties>
