@@ -51,12 +51,12 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-<!--                            <mainClass>-->
-<!--                                io.github.mikeiansky.open.source.activemq.Consumer-->
-<!--                            </mainClass>-->
                             <mainClass>
-                                io.github.mikeiansky.open.source.activemq.Producer
+                                io.github.mikeiansky.open.source.activemq.Consumer
                             </mainClass>
+<!--                            <mainClass>-->
+<!--                                io.github.mikeiansky.open.source.activemq.Producer-->
+<!--                            </mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>

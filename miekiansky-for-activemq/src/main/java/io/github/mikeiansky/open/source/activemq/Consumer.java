@@ -55,8 +55,11 @@ public class Consumer {
                     if (message instanceof TextMessage) {
                         String text = ((TextMessage) message).getText();
                         System.out.println("Got " + i++ + ". message: " + text);
+                    } else {
+                        System.out.println("Got " + i++ + ". message: " + message);
                     }
                 } else {
+                    System.out.println("Got   message timeout  .... ");
                     break;
                 }
             }
