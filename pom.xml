@@ -13,6 +13,7 @@
         <module>mikeiansky-for-rabbitmq</module>
         <module>miekiansky-for-activemq</module>
         <module>mikeiansky-for-zookeeper</module>
+        <module>mikeiansky-for-kafka</module>
     </modules>
 
     <properties>
