@@ -26,9 +26,9 @@ public class KafkaProducerDemo {
         ProducerRecord<String, String> record = new ProducerRecord<>("test-topic", "key7", "value7");
 //        ProducerRecord<String, String> record = new ProducerRecord<>("my_topic", null, "value1");
         producer.send(record);
-        record = new ProducerRecord<>("test-topic", "key8", "value8");
+        record = new ProducerRecord<>("test-topic", "key18", "value18");
         producer.send(record);
-        record = new ProducerRecord<>("test-topic", "key9", "value9");
+        record = new ProducerRecord<>("test-topic", "key19", "value19");
         producer.send(record);
         producer.flush();
     }
