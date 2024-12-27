@@ -24,7 +24,7 @@ public class KafkaConsumerOneDemo {
 
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.16.2.252:9092"); // Kafka 集群地址
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "002"); // 消费者组 ID
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "3"); // 消费者组 ID
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // 从最早的记录开始消费
