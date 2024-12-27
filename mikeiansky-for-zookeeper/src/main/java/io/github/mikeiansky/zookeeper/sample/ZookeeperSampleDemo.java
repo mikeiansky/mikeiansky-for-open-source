@@ -47,12 +47,12 @@ public class ZookeeperSampleDemo {
 
         // 再次读取节点数据
 //        nodeData = zooKeeper.getData(path, false, stat);
-        nodeData = zooKeeper.getData("/ian", false, stat);
+        nodeData = zooKeeper.getData(path, false, stat);
         System.out.println("Data of node " + path + " after update: " + new String(nodeData));
 
-        // 删除节点
-        zooKeeper.delete(path, stat.getVersion());
-        System.out.println("Node deleted: " + path);
+//        // 删除节点
+//        zooKeeper.delete(path, stat.getVersion());
+//        System.out.println("Node deleted: " + path);
 
         // 关闭连接
         zooKeeper.close();
