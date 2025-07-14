@@ -43,7 +43,8 @@ public class Producer {
             connection = connectionFactory.createConnection();
             connection.start();
 
-            Session session = connection.createSession(NON_TRANSACTED, Session.AUTO_ACKNOWLEDGE);
+//            Session session = connection.createSession(NON_TRANSACTED, Session.AUTO_ACKNOWLEDGE);
+            Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
             Destination destination = session.createQueue("test-queue");
             MessageProducer producer = session.createProducer(destination);
 
@@ -55,10 +56,13 @@ public class Producer {
             }
 
             producer.close();
+//            session.rollback();
+            session.commit();
             session.close();
 
         } catch (Exception e) {
             System.out.println("Caught exception!");
+            e.printStackTrace();
         }
         finally {
             if (connection != null) {
