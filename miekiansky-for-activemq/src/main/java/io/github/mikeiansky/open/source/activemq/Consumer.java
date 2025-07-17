@@ -35,7 +35,7 @@ public class Consumer {
             url = args[0].trim();
         }
         System.out.println("\nWaiting to receive messages... will timeout after " + TIMEOUT / 1000 +"s");
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("artemis", "artemis", url);
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("admin", "admin", url);
         Connection connection = null;
 
         try {

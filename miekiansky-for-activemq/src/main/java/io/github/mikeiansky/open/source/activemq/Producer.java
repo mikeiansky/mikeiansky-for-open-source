@@ -24,7 +24,7 @@ import javax.jms.*;
  * @author <a href="http://www.christianposta.com/blog">Christian Posta</a>
  */
 public class Producer {
-    private static final String BROKER_URL = "tcp://172.16.2.252:61616";
+    private static final String BROKER_URL = "tcp://172.16.2.252:61816";
 
     private static final Boolean NON_TRANSACTED = false;
     private static final int NUM_MESSAGES_TO_SEND = 100;
@@ -35,7 +35,7 @@ public class Producer {
         if (args.length > 0) {
             url = args[0].trim();
         }
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("artemis", "artemis", url);
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("admin", "admin", url);
         Connection connection = null;
 
         try {
