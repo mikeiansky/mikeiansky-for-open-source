@@ -25,7 +25,7 @@ import javax.jms.*;
  */
 public class Consumer {
 
-    private static final String BROKER_URL = "tcp://172.16.2.252:61616";
+    private static final String BROKER_URL = "tcp://172.16.2.252:61716";
     private static final Boolean NON_TRANSACTED = false;
     private static final long TIMEOUT = 20000;
 
