@@ -11,7 +11,7 @@
     <modules>
         <module>mikeiansky-for-consul</module>
         <module>mikeiansky-for-rabbitmq</module>
-        <module>miekiansky-for-activemq</module>
+        <module>miekiansky-for-mq</module>
         <module>mikeiansky-for-zookeeper</module>
         <module>mikeiansky-for-kafka</module>
     </modules>
