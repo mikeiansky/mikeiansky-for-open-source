@@ -17,17 +17,19 @@
 package io.github.mikeiansky.open.source.activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.ScheduledMessage;
 
 import javax.jms.*;
+import java.time.Duration;
 
 /**
  * @author <a href="http://www.christianposta.com/blog">Christian Posta</a>
  */
 public class Producer {
-    private static final String BROKER_URL = "tcp://172.16.2.252:61716";
+    private static final String BROKER_URL = "tcp://172.16.2.232:61616";
 
     private static final Boolean NON_TRANSACTED = false;
-    private static final int NUM_MESSAGES_TO_SEND = 100;
+    private static final int NUM_MESSAGES_TO_SEND = 10;
     private static final long DELAY = 100;
 
     public static void main(String[] args) {
@@ -51,6 +53,8 @@ public class Producer {
             for (int i = 0; i < NUM_MESSAGES_TO_SEND; i++) {
                 TextMessage message = session.createTextMessage("Message #" + i);
                 System.out.println("Sending message #" + i);
+                // 发送延迟消息
+                message.setLongProperty(ScheduledMessage.AMQ_SCHEDULED_DELAY, 10 * 1000L);
                 producer.send(message);
                 Thread.sleep(DELAY);
             }
