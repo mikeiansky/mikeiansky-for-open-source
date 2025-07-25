@@ -33,6 +33,7 @@ public class RocketProducer {
 
         // 设置消息的topic,tag以及消息体
         Message msg = new Message("topic_test", "tag_test", "消息内容-004".getBytes(StandardCharsets.UTF_8));
+//        msg.setFlag();
 
         // 发送消息，并设置10s连接超时
         SendResult send = producer.send(msg, 10000);

@@ -37,6 +37,7 @@ public class RocketConsumer {
                 byte[] body = list.get(0).getBody();
                 System.out.println("接收消息："+new String(body, StandardCharsets.UTF_8));
                 return ConsumeOrderlyStatus.SUCCESS;
+
             }
         });
 
