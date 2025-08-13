@@ -22,7 +22,7 @@ public class RocketConsumer {
     public static void main(String[] args) throws InterruptedException, MQClientException {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group_test");
 
-        consumer.setNamesrvAddr("172.16.2.252:9876");
+        consumer.setNamesrvAddr("172.16.2.253:9876");
 
         // 集群消费模式
         consumer.setMessageModel(MessageModel.CLUSTERING);
