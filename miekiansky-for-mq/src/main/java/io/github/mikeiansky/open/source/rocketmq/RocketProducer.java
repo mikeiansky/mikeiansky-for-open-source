@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,23 +29,29 @@ public class RocketProducer {
         DefaultMQProducer producer = new DefaultMQProducer("group_test");
 
         // 声明namesrv地址
-        producer.setNamesrvAddr("172.16.2.253:9876");
+        producer.setNamesrvAddr("127.0.0.1:9876");
 
         // 启动实例
         producer.start();
 
-        // 设置消息的topic,tag以及消息体
-        Message msg = new Message("topic_test", "tag_test", "消息内容-004".getBytes(StandardCharsets.UTF_8));
-        // 发送延迟消息
-//        msg.setDelayTimeLevel(1);
-//        msg.setDeliverTimeMs();
+        String ProxyEndpoint = "127.0.0.1:8081";
 
-        producer.send(msg, new MessageQueueSelector() {
-            @Override
-            public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
-                return null;
-            }
-        }, "111");
+
+        // 设置消息的topic,tag以及消息体
+        Message msg = new Message("TestTopic", "tag_test", "消息内容-009".getBytes(StandardCharsets.UTF_8));
+        // 发送延迟消息
+//        msg.setDelayTimeLevel(3);
+        msg.setDeliverTimeMs(1000*9);
+
+        producer.send(msg);
+
+//        producer.send(msg, new MessageQueueSelector() {
+//            @Override
+//            public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
+//                return null;
+//            }
+//        }, "111");
+
 
 //        producer.sendMessageInTransaction(msg, null);
 
@@ -66,7 +73,7 @@ public class RocketProducer {
 
         // 发送消息，并设置10s连接超时
         SendResult send = producer.send(msg, 10000);
-        System.out.println("发送结果："+send);
+        System.out.println(new Date()+" , 发送结果："+send);
 
         // 关闭实例
         producer.shutdown();
